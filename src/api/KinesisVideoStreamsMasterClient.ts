@@ -147,10 +147,7 @@ export default class KinesisVideoStreamsMasterClient {
       console.log('[MASTER] Connected to signaling service');
     });
 
-    this.signalingClient.on('sdpOffer', async (offer, remoteClientId) => {
-      console.debug('TypeCheck: offer', offer);
-      console.debug('TypeCheck: remoteClientId', remoteClientId);
-
+    this.signalingClient.on('sdpOffer', async (offer: RTCSessionDescriptionInit, remoteClientId: string) => {
       console.log('[MASTER] Received SDP offer from client: ' + remoteClientId);
 
       // Create a new peer connection using the offer from the given client
